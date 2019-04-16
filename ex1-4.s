@@ -30,7 +30,8 @@ loop:
     j inloop
 
 inloop:
-    beq $9, $12, loop
+    addi $24, $9, 1
+    beq $24, $12, loop
 
     lw $13, 4($11)
     lw $25, 0($11)
