@@ -1,0 +1,35 @@
+initial
+    begin
+        CLR = 1b'1;
+        #100
+        CLR = 1b'0;
+        #100
+
+        WriteEn = 1b'0;
+        WriteReg[4:0] = 5b'00001;
+        WriteData[31:0] = 32h'01250117;
+        WriteEn = 1b'1;
+        #100
+
+        WriteEn = 1b'0;
+        WriteReg[4:0] = 5b'00010;
+        WriteData[31:0] = 32h'00002019;
+        WriteEn = 1b'1;
+        #100
+
+        WriteEn = 1b'0;
+        ReadReg1[4:0] = 5b'00001;
+        ReadReg2[4:0] = 5b'00010;
+        #100
+
+        $finish;
+
+    end
+
+always
+    begin
+        CK = 1b'0;
+        #50
+        CK = 1b'0;
+        #50;
+    end
